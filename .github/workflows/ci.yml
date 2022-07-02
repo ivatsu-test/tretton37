@@ -1,4 +1,4 @@
-name: Lint Code (CI)
+name: Lint Code & Run Tests (CI)
 on:
   push:
     branches:
@@ -20,3 +20,18 @@ jobs:
       - uses: actions/setup-node@v2
       - run: npm ci --ignore-scripts
       - run: npm run lint
+  test-unit:
+    needs: lint
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        operating-system:
+          - ubuntu-latest
+        node-version:
+          - '16.x'
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+      - run: npm ci --ignore-scripts
+      - run: npm run test-without-watcher

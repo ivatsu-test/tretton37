@@ -39,6 +39,12 @@ The CI is simple:
 
 ## Thoughts behind the code design
 
+Usually I am not strictly follow the architecture and adapt it to the project. As a rule, I have `redux/` folder which has all the state-related utilities.
+
+I like to decompose App to the smallest components possible and follow the structure when `components` and `containers`(container components) separated, but not sure whether I will be able to show it in full here.
+
+Usually I do not use common `.css` for all the components, but due to the time limit and not being sure whether I will do any complex styling in here, I use single `.css` for all the components (at least for now). In general, I prefer having css modules files tied with a specific component, but looks there's no such support with TypeScript project, and I have no time playing around here.
+
 ## Motivation and reasoning of installed packages
 
 I use Husky as Git hooks to setup pre-commit scripts that will execute the needed checks and dismiss/discard the commit in case if those checks fail.
@@ -51,6 +57,8 @@ I use Axios as an HTTP client because of the huge community over there, populari
 
 I use Redux to manage the SPA's state, because it has huge popularity, it's lightweight, predictable. I use Thunk Middleware to handle requests and separate UI from making the request on their own. I think of it as a layer between UI and business logic, so that it's predictable that UI can just dispatch a needed action which will handle all the other stuff.
 
+I use React Router because that is simple, but yet powerful package to handle routing in the SPA. Also, the important thing - it's popular.
+
 ## List of stories selected and the features chosen
 
 ## Build & Run
@@ -60,6 +68,12 @@ I use Redux to manage the SPA's state, because it has huge popularity, it's ligh
    cp .env.sample .env
    ```
    and put there correct credentials.
+
+2. Make sure that Node version >= 16. If you use `nvm`, run:
+   ```
+   nvm use
+   ```
+   It will pick up the version used here (if you have one already installed).
 
 ### Credits
 
