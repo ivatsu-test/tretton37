@@ -1,18 +1,11 @@
-# Getting Started with tretton37
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# tretton37
 
 ## Available Scripts
-
-In the project directory, you can run:
 
 ### `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
 ### `npm test`
 
@@ -29,18 +22,45 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+### `npm run lint`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Lints the files inside `/src` folder with the ESLint applying Airbnb styles.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## `npm run prepare`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Runs installation of the Husky Git hooks, so it's not missed and then possible to run the `pre-commit` (to lint the code) and `commit-msg` (to verify the correctness of the commit message). If you want to write that the app is killing you in the commit, you should think first whether it is a `fix:` or `feat:` 😁.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Product description
 
-## Learn More
+I have been working on a different branches. The `main` is the source of truth, but the others are set so, that it is seen the progress within the time, i.e. `hour-1` - means committed changes after the 1st hour, etc.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The CI is simple:
+1. Just to make sure that the code linting is fine and correct, I have setup the GitHub Workflow Action that will run `npm run lint` on `push` and `pull request`.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Thoughts behind the code design
+
+## Motivation and reasoning of installed packages
+
+I use Husky as Git hooks to setup pre-commit scripts that will execute the needed checks and dismiss/discard the commit in case if those checks fail.
+
+I use ESLint to lint the code and enforce the code style throughout the project to eliminate any battles around `spaces`, `tabs` or indentation size.
+
+I use commitlint (along with the Git Hooks) to provide better description and meaning to the commit messages.
+
+I use Axios as an HTTP client because of the huge community over there, popularity, easiness in use.
+
+I use Redux to manage the SPA's state, because it has huge popularity, it's lightweight, predictable. I use Thunk Middleware to handle requests and separate UI from making the request on their own. I think of it as a layer between UI and business logic, so that it's predictable that UI can just dispatch a needed action which will handle all the other stuff.
+
+## List of stories selected and the features chosen
+
+## Build & Run
+
+1. Create .env file:
+   ```
+   cp .env.sample .env
+   ```
+   and put there correct credentials.
+
+### Credits
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
