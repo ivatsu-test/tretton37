@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Routes, Route } from 'react-router-dom';
 
-import { EmployeesCards } from './components';
+import { EmployeesCards, EmployeeSummary } from './components';
 
 import { selectEmployees, TSelectEmployees } from './redux/selectors/employees.selector';
 import { getEmployeesThunk } from './redux/thunks/employees.thunk';
@@ -17,8 +18,12 @@ function App() {
     dispatch(getEmployeesThunk());
   }, [dispatch]);
 
-  return employees
-    ? <EmployeesCards employees={employees} /> : null;
+  return (
+    <Routes>
+      <Route path="/" element={<EmployeesCards employees={employees} />} />
+      <Route path="/employee/:name" element={<EmployeeSummary />} />
+    </Routes>
+  );
 }
 
 export default App;
