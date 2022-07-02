@@ -2,7 +2,8 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
 
-import { EmployeesCards, EmployeeSummary } from './components';
+import { EmployeesCards } from './components';
+import EmployeeSummary from './routes/EmployeeSummary';
 
 import { selectEmployees, TSelectEmployees } from './redux/selectors/employees.selector';
 import { getEmployeesThunk } from './redux/thunks/employees.thunk';
