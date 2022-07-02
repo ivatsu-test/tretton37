@@ -1,4 +1,4 @@
-name: Lint Code (CI)
+name: Lint Code & Run Tests (CI)
 on:
   push:
     branches:
