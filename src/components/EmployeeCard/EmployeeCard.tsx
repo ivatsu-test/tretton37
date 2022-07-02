@@ -2,11 +2,11 @@ export type TEmployee = {
   name: string
 }
 
-export type TCard = {
+export type TEmployeeCard = {
   employee : TEmployee
 }
 
-function EmployeeCard({ employee }: TCard) {
+function EmployeeCard({ employee }: TEmployeeCard) {
   return (
     <section className="c-employee-card">
       <h2>{employee.name}</h2>

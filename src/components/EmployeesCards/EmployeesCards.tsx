@@ -1,10 +1,10 @@
 import EmployeeCard, { TEmployee } from '../EmployeeCard/EmployeeCard';
 
-type TCards = {
+type TEmployeesCards = {
   employees: TEmployee[]
 }
 
-function EmployeesCards({ employees }: TCards) {
+function EmployeesCards({ employees }: TEmployeesCards) {
   return (
     <article className="c-employees-cards">
       {employees
