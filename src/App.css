@@ -4,6 +4,19 @@
   padding: 1rem;
 }
 
+.l-input {
+  max-width: 18rem;
+}
+
+.o-input {
+  font-size: larger;
+}
+
+.l-name-filer-input {
+  height: 2.2rem;
+  border-radius: 4px;
+}
+
 .c-sort,
 .c-filter {
   padding: 1rem;

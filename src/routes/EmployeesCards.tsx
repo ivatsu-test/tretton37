@@ -190,7 +190,7 @@ function EmployeesCards({ employees }: TEmployeesCards) {
 
           {isNameFilterSelected && (
             <div>
-              <input type="search" placeholder="Search by name..." onChange={handleNameChange} />
+              <input type="search" placeholder="Search by name..." onChange={handleNameChange} className="l-input l-name-filer-input o-input" />
             </div>
           )}
 
@@ -199,6 +199,7 @@ function EmployeesCards({ employees }: TEmployeesCards) {
               value={officeFilterSelectedValue}
               onChange={handleOfficeSelect}
               options={createOfficesOptions()}
+              className="l-input o-input"
             />
           )}
         </section>
