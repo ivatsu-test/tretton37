@@ -1,7 +1,7 @@
 import EmployeeCard from './EmployeeCard/EmployeeCard';
-import EmployeesCards from './EmployeesCards/EmployeesCards';
+import EmployeeImage from './EmployeeImage/EmployeeImage';
 
 export {
   EmployeeCard,
-  EmployeesCards,
+  EmployeeImage,
 };
