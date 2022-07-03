@@ -1,4 +1,6 @@
-import { sortByEmployeeName, sortByEmployeeOffice, SortOrder } from './arrays';
+import {
+  sortByEmployeeName, sortByEmployeeOffice, SortOrder, filterByEmployeeName,
+} from './arrays';
 
 // sortByEmployeeName
 
@@ -221,5 +223,46 @@ it.each([
   ],
 ])('%p should return ASC order %p', (value, expected) => {
   const result = sortByEmployeeOffice(value, SortOrder.DESC);
+  expect(result).toStrictEqual(expected);
+});
+
+// filterByEmployeeName
+
+it.each([
+  [
+    [notSortedEmployees, 'Ale'],
+    [],
+  ],
+  [
+    [notSortedEmployees, 'Mar'],
+    [
+      {
+        name: 'Martin Nilsson',
+      },
+      {
+        name: 'Martin Lecke',
+      },
+    ],
+  ],
+  [
+    [notSortedEmployees, 'N'],
+    [
+      { name: 'Martin Nilsson' },
+      { name: 'Johannes Alvarsson' },
+      { name: 'Ludwig Schönbeck' },
+      { name: 'Helen Toomik' },
+      { name: 'Georgy Sayganov' },
+      { name: 'Kim Gustafsson' },
+      { name: 'Jens Norell' },
+      { name: 'Håkan Haraldsson' },
+      { name: 'Martin Lecke' },
+    ],
+    [notSortedEmployees, 'Ni'],
+    [
+      { name: 'Martin Nilsson' },
+    ],
+  ],
+])('%p should return filtered names %p', (value, expected) => {
+  const result = filterByEmployeeName(value[0], value[1]);
   expect(result).toStrictEqual(expected);
 });
