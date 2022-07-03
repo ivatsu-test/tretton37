@@ -80,6 +80,11 @@ I use React Router because that is simple, but yet powerful package to handle ro
    npm i
    ```
 
+4. Run the app:
+   ```
+   npm start
+   ```
+
 ### Credits
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
