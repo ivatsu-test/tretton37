@@ -1,15 +1,25 @@
 import React, { useCallback, useState, useMemo } from 'react';
+import Select from 'react-select';
 import debounce from 'lodash.debounce';
 
+import { useSelector } from 'react-redux';
 import EmployeeCard, { TEmployee } from '../components/EmployeeCard/EmployeeCard';
 import getSortedEmployees from '../helpers/getSortedEmployees';
 import { filterByEmployeeName } from '../util/arrays';
+import { selectEmployeesOffices, TSelectEmployees } from '../redux/selectors/employees.selector';
 
 type TEmployeesCards = {
   employees: TEmployee[]
 }
 
+type TSelectedOffice = {
+  value: string,
+  label: string
+}
+
 function EmployeesCards({ employees }: TEmployeesCards) {
+  const employeesOffices = useSelector((state: TSelectEmployees) => selectEmployeesOffices(state));
+
   const [isSort, setSort] = useState(false);
   const [isFilter, setFilter] = useState(false);
 
@@ -22,6 +32,9 @@ function EmployeesCards({ employees }: TEmployeesCards) {
   const [isNameFilterSelected, setNameFilterSelected] = useState(false);
   const [isOfficeFilterSelected, setOfficeFilterSelected] = useState(false);
   const [employeesFilteredByName, setEmployeesFilteredByName] = useState<TEmployee[]>();
+
+  const [officeFilterSelectedValue, setOfficeFilterSelectedValue] = useState();
+  const [employeesFilteredByOffice, setEmployeesFilteredByOffice] = useState<TEmployee[]>();
 
   const employeesSortOutputMemoized = useMemo(
     () => getSortedEmployees(
@@ -62,6 +75,7 @@ function EmployeesCards({ employees }: TEmployeesCards) {
     setNameFilterSelected(false);
     setOfficeFilterSelected(false);
     setFilter(false);
+    debouncedEmployeesByNameFilter('');
   };
 
   const handleOnNameSort = () => {
@@ -106,6 +120,13 @@ function EmployeesCards({ employees }: TEmployeesCards) {
     debouncedEmployeesByNameFilter(event.target.value);
   };
 
+  const handleOfficeSelect = (selected: TSelectedOffice | any) => {
+    setOfficeFilterSelectedValue(selected);
+    setEmployeesFilteredByOffice(
+      employees.filter((employee) => employee.office === selected?.label),
+    );
+  };
+
   const getEmployees = () => {
     if (isSort) {
       return employeesSortOutputMemoized;
@@ -113,8 +134,16 @@ function EmployeesCards({ employees }: TEmployeesCards) {
     if (isFilter && isNameFilterSelected) {
       return employeesFilteredByName;
     }
+    if (isFilter && isOfficeFilterSelected) {
+      return employeesFilteredByOffice;
+    }
     return employees;
   };
+
+  const createOfficesOptions = (): TSelectedOffice[] | any => employeesOffices.map((office) => ({
+    value: office.toLowerCase(),
+    label: office,
+  }));
 
   return (
     <>
@@ -129,7 +158,6 @@ function EmployeesCards({ employees }: TEmployeesCards) {
             onClick={() => {
               handleClearSort();
               handleClearFilter();
-              debouncedEmployeesByNameFilter('');
             }}
             className="c-sort-button"
           >
@@ -156,6 +184,14 @@ function EmployeesCards({ employees }: TEmployeesCards) {
             <div>
               <input type="search" placeholder="Search by name..." onChange={handleNameChange} />
             </div>
+          )}
+
+          {isOfficeFilterSelected && (
+            <Select
+              value={officeFilterSelectedValue}
+              onChange={handleOfficeSelect}
+              options={createOfficesOptions()}
+            />
           )}
         </section>
       </header>
