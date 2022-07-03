@@ -1,6 +1,5 @@
 import React, { useCallback, useState, useMemo } from 'react';
 import Select from 'react-select';
-import debounce from 'lodash.debounce';
 
 import { useSelector } from 'react-redux';
 import EmployeeCard, { TEmployee } from '../components/EmployeeCard/EmployeeCard';
@@ -55,12 +54,9 @@ function EmployeesCards({ employees }: TEmployeesCards) {
     ],
   );
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   const debouncedEmployeesByNameFilter = useCallback(
-    debounce((query) => {
-      setEmployeesFilteredByName(filterByEmployeeName(employees, query));
-    }, 500),
-    [],
+    (query: string) => setEmployeesFilteredByName(filterByEmployeeName(employees, query)),
+    [employees],
   );
 
   const handleClearSort = () => {
