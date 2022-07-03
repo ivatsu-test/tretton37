@@ -75,6 +75,11 @@ I use React Router because that is simple, but yet powerful package to handle ro
    ```
    It will pick up the version used here (if you have one already installed).
 
+3. Install npm dependencies:
+   ```
+   npm i
+   ```
+
 ### Credits
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

@@ -1,9 +1,9 @@
-/* eslint-disable react/no-danger */
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import EmployeeImage from '../components/EmployeeImage/EmployeeImage';
+import { sanitize } from 'dompurify';
 
+import { EmployeeImage } from '../components';
 import { TSelectEmployees, selectEmployees } from '../redux/selectors/employees.selector';
 import { hyphenate } from '../util/strings';
 
@@ -22,7 +22,7 @@ function EmployeeSummary() {
       )}
       <h1>{employee.name}</h1>
       {employee.mainText && (
-        <p dangerouslySetInnerHTML={{ __html: employee.mainText }} />
+        <p dangerouslySetInnerHTML={{ __html: sanitize(employee.mainText) }} />
       )}
     </section>
   );

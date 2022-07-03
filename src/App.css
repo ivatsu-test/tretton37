@@ -1,16 +1,49 @@
 :root {
   --main-bg-color: rgba(225, 190, 106, 1);
+  --main-bg-color-darker: rgba(203, 148, 19, 1);
+  --secondary-bg-color: rgba(64, 176, 166, 1);
   --main-text-color: rgba(62, 59, 53, 1);
   --max-width: 1200px;
 }
 
-.c-employees-cards {
+.l-container {
   max-width: var(--max-width);
   margin: 0 auto;
+  padding: 1rem;
+}
+
+.c-sort {
+  padding: 1rem;
+  background-color: var(--secondary-bg-color);
+}
+
+.c-sort__title {
+  display: inline-block;
+  font-size: larger;
+  font-weight: 700;
+}
+
+.c-sort__order {
+  font-weight: 500;
+}
+
+.c-sort-button {
+  margin: 0.3rem;
+  padding: 0.2rem;
+  font-size: inherit;
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.c-sort-button--selected {
+  background-color: var(--main-bg-color);
+  border-color: var(--main-bg-color-darker);
+}
+
+.c-employees-cards {
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(300px, 2fr));
-  padding: 1rem;
 }
 
 .c-employee-card {
