@@ -75,3 +75,11 @@
 .c-employee-card--social-icon {
   max-height: 30px;
 }
+
+.o-employee__header {
+  color: var(--secondary-bg-color);
+}
+
+.l-employee__main-text {
+  padding: 1rem;
+}

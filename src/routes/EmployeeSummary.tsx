@@ -20,10 +20,10 @@ function EmployeeSummary() {
       {employee.imageWallOfLeetUrl && (
         <EmployeeImage src={employee.imageWallOfLeetUrl} name={employee.name} />
       )}
-      <h1>{employee.name}</h1>
+      <h1 className="o-employee__header">{employee.name}</h1>
       {employee.mainText && (
         // eslint-disable-next-line react/no-danger
-        <p dangerouslySetInnerHTML={{ __html: sanitize(employee.mainText) }} />
+        <div className="l-employee__main-text" dangerouslySetInnerHTML={{ __html: sanitize(employee.mainText) }} />
       )}
     </section>
   );
