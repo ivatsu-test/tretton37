@@ -1,4 +1,4 @@
-name: Lint Code & Run Tests (CI)
+name: Lint Code & Run Tests & Trigger Netlify Deploy (CI)
 on:
   push:
     branches:
