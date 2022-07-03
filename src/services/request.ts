@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import axios from 'axios';
 
 import { API_URL } from '../constants/api';
@@ -8,7 +9,7 @@ const client = axios.create({
 
 const request = async (options: {}) => {
   const onSuccess = (response: {}) => {
-    console.debug('Request successfull:', response);
+    console.debug('Request successful:', response);
     return response;
   };
 

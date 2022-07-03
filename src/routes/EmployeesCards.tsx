@@ -55,6 +55,7 @@ function EmployeesCards({ employees }: TEmployeesCards) {
     ],
   );
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const debouncedEmployeesByNameFilter = useCallback(
     debounce((query) => {
       setEmployeesFilteredByName(filterByEmployeeName(employees, query));

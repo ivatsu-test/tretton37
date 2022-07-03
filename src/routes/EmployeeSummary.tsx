@@ -22,6 +22,7 @@ function EmployeeSummary() {
       )}
       <h1>{employee.name}</h1>
       {employee.mainText && (
+        // eslint-disable-next-line react/no-danger
         <p dangerouslySetInnerHTML={{ __html: sanitize(employee.mainText) }} />
       )}
     </section>
