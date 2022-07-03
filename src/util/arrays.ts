@@ -38,3 +38,7 @@ export const sortByEmployeeOffice = (employees: TEmployee[], order: SortOrder) =
       return employees;
   }
 };
+
+export const filterByEmployeeName = (employees: TEmployee[], query: string) => employees?.filter(
+  (employee) => (employee.name.toLowerCase().includes(query.toLowerCase())),
+);
