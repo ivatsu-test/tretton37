@@ -76,7 +76,6 @@ function EmployeesCards({ employees }: TEmployeesCards) {
     setNameFilterSelected(false);
     setOfficeFilterSelected(false);
     setFilter(false);
-    debouncedEmployeesByNameFilter('');
   };
 
   const handleOnNameSort = () => {
