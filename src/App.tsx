@@ -2,10 +2,12 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
 
-import { EmployeesCards } from './components';
+import EmployeesCards from './routes/EmployeesCards';
 import EmployeeSummary from './routes/EmployeeSummary';
 
-import { selectEmployees, TSelectEmployees } from './redux/selectors/employees.selector';
+import {
+  selectEmployees, TSelectEmployees,
+} from './redux/selectors/employees.selector';
 import { getEmployeesThunk } from './redux/thunks/employees.thunk';
 import { TDispatch } from './redux/reduxTypes';
 import './App.css';
@@ -21,7 +23,10 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<EmployeesCards employees={employees} />} />
+      <Route
+        path="/"
+        element={<EmployeesCards employees={employees} />}
+      />
       <Route path="/employee/:name" element={<EmployeeSummary />} />
     </Routes>
   );
