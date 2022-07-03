@@ -35,3 +35,10 @@ jobs:
       - uses: actions/setup-node@v2
       - run: npm ci --ignore-scripts
       - run: npm run test-without-watcher
+  curl:
+    runs-on: ubuntu-latest
+    steps:
+    - name: curl
+      uses: wei/curl@v1
+      with:
+        args: -X POST -d '{}' https://api.netlify.com/build_hooks/62c2028a355a9e4f69111ab6
