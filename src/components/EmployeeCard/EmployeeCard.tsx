@@ -29,7 +29,7 @@ function EmployeeCard({ employee }: TEmployeeCard) {
       {employee.imagePortraitUrl && (
         <EmployeeImage src={employee.imagePortraitUrl} name={employee.name} />
       )}
-      <Link to={`/employee/${hyphenate(employee.name)}`}>
+      <Link to={`/employee/${hyphenate(employee.name)}`} className="c-employee-card__link">
         <h2>{employee.name}</h2>
       </Link>
       <h3>

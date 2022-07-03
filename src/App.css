@@ -50,6 +50,10 @@
   background-color: var(--main-bg-color);
 }
 
+.c-employee-card__link {
+  color: var(--secondary-bg-color);
+}
+
 .c-employee-card--img {
   max-width: 300px;
   max-height: 400px;
