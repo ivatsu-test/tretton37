@@ -154,18 +154,25 @@ function EmployeesCards({ employees }: TEmployeesCards) {
           <p className="c-sort__title">Sort by:</p>
           <button type="button" onClick={handleOnNameSort} className={`c-sort-button ${isNameSortSelected ? 'c-sort-button--selected' : ''}`}>Name</button>
           <button type="button" onClick={handleOnOfficeSort} className={`c-sort-button ${isOfficeSortSelected ? 'c-sort-button--selected' : ''}`}>Office</button>
-          <button
-            type="button"
-            onClick={() => {
-              handleClearSort();
-              handleClearFilter();
-            }}
-            className="c-sort-button"
-          >
-            Clear
-            {' '}
-            <span aria-hidden="true">❌</span>
-          </button>
+          {(
+            isNameFilterSelected
+            || isNameSortSelected
+            || isOfficeFilterSelected
+            || isOfficeSortSelected
+          ) && (
+            <button
+              type="button"
+              onClick={() => {
+                handleClearSort();
+                handleClearFilter();
+              }}
+              className="c-sort-button"
+            >
+              Clear
+              {' '}
+              <span aria-hidden="true">❌</span>
+            </button>
+          )}
 
           {(isNameSortSelected || isOfficeSortSelected) && (
             <>
