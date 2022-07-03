@@ -63,6 +63,24 @@ I use React Router because that is simple, but yet powerful package to handle ro
 
 ## List of stories selected and the features chosen
 
+My purpose was to implement as many as possible from the task matrix, because I think it will give a better overview of my skillset.
+
+Support for color blindness: I have used this site https://davidmathlogic.com/colorblind/ to pick the suitable colors for background.
+
+Sort by name and office: I think this task functionally done almost in full.
+
+Use TypeScript: I am not a TypeScript expert and haven't seriously worked with this before, so I spent a lot of time figuring out the redux typing and typing for the installed dependencies. I tried to avoid `any` for the majority of cases, but there are some that I wasn't able to figure out.
+
+Responsive design: main layout of the app is done so that it should fit all the devices from mobile to large screens. But there's not that much implemented on this task so far.
+
+Filter by name and office: both of features are implemented. I noticed some problems while using debounce to avoid unnecessary re-renders, but haven't had enough time to fix that. The name and office is done in a different way, just to experiment and give you a few different approaches.
+
+Use modern CSS: the app is not that styli-sh, but I have used grid for the main layout and variables to define reused colors.
+
+Unit tests: I have added unit tests for the utility functions I came up with during the development. I think some of them do not cover edge cases.
+
+CI/CD: I haven't done anything extraordinary here, just setup linter, test and deploy jobs with GitHub actions. So, on push, merge these tasks are executed. Lint code with ESLint, run unit tests with Jest, deploy to Netlify by triggering it's hook.
+
 ## Build & Run
 
 1. Create .env file:
