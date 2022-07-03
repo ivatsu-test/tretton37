@@ -1,23 +1,17 @@
-:root {
-  --main-bg-color: rgba(225, 190, 106, 1);
-  --main-bg-color-darker: rgba(203, 148, 19, 1);
-  --secondary-bg-color: rgba(64, 176, 166, 1);
-  --main-text-color: rgba(62, 59, 53, 1);
-  --max-width: 1200px;
-}
-
 .l-container {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 1rem;
 }
 
-.c-sort {
+.c-sort,
+.c-filter {
   padding: 1rem;
   background-color: var(--secondary-bg-color);
 }
 
-.c-sort__title {
+.c-sort__title,
+.c-filter__title {
   display: inline-block;
   font-size: larger;
   font-weight: 700;
@@ -27,7 +21,8 @@
   font-weight: 500;
 }
 
-.c-sort-button {
+.c-sort-button,
+.c-filter-button {
   margin: 0.3rem;
   padding: 0.2rem;
   font-size: inherit;
@@ -35,7 +30,8 @@
   line-height: 1.15;
 }
 
-.c-sort-button--selected {
+.c-sort-button--selected,
+.c-filter-button--selected {
   background-color: var(--main-bg-color);
   border-color: var(--main-bg-color-darker);
 }
